@@ -1,0 +1,14 @@
+.vscode
+.idea
+test
+objectdb
+venv/
+log.txt
+benchmark
+renovate.json
+README.md
+.travis.yml
+.github
+.flake8
+.gitignore
+.git

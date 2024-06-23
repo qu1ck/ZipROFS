@@ -1,0 +1,21 @@
+services:
+  ziprofs:
+    # build: .
+    image: ghcr.io/openscopeproject/ziprofs
+    privileged: true
+    volumes:
+      - # Root/source directory
+        source: ./data/root
+        target: /app/root
+        type: bind
+      - # Mountpoint/target directory
+        source: ./data/mnt
+        target: /app/mnt
+        type: bind
+        bind:
+          propagation: rshared
+    command:
+      - /app/root
+      - /app/mnt
+      - -o
+      - allowother,foreground
