@@ -16,5 +16,8 @@
       "groupName": "OS Packages"
     }
   ],
-  "forkProcessing": "enabled"
+  "forkProcessing": "enabled",
+  "ignoreDeps": [
+    "ghcr.io/openscopeproject/ziprofs"
+  ]
 }
