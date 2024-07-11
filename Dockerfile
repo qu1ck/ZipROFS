@@ -1,4 +1,4 @@
-FROM        python:3.12.4-alpine@sha256:b7662fc33e07f05fb2f579c3634e1e4d2e30c02553397c6c24f775cb360dbc03
+FROM        python:3.12.4-alpine@sha256:0bd77ae937dce9037e136ab35f41eaf9e012cfd741fc3c8dd4b3e2b63499f12c
 
 # renovate: datasource=repology depName=alpine_3_20/fuse versioning=loose
 ARG         FUSE_VERSION="2.9.9-r5"
