@@ -5,7 +5,11 @@
     ":semanticCommits",
     ":semanticCommitScopeDisabled",
     "docker:enableMajor",
-    "customManagers:dockerfileVersions"
+    "customManagers:dockerfileVersions",
+    ":disableRateLimiting",
+    ":ignoreUnstable",
+    ":separateMultipleMajorReleases",
+    ":updateNotScheduled"
   ],
   "docker-compose": {
     "enabled": false
@@ -19,5 +23,5 @@
       "groupName": "OS Packages"
     }
   ],
-  "forkProcessing": "enabled",
+  "forkProcessing": "enabled"
 }
