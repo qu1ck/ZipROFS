@@ -7,6 +7,9 @@
     "docker:enableMajor",
     "customManagers:dockerfileVersions"
   ],
+  "docker-compose": {
+    "enabled": false
+  },
   "packageRules": [
     {
       "description": "Group OS packages to avoid build errors if more than one package is updated and previous version is not present in repo already",
@@ -17,7 +20,4 @@
     }
   ],
   "forkProcessing": "enabled",
-  "ignoreDeps": [
-    "ghcr.io/openscopeproject/ziprofs"
-  ]
 }
