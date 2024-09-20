@@ -46,6 +46,46 @@ jobs:
             type=ref,event=tag
             type=raw,value=latest,enable={{is_default_branch}}
 
+      - name: Setup buildx mount cache
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        with:
+          path: |
+            home-cache-386
+            home-cache-amd64
+            home-cache-armv6
+            home-cache-armv7
+            home-cache-arm64
+          key: buildx-mount-cache-${{ github.sha }}
+          restore-keys: |
+            buildx-mount-cache-
+
+      - name: Inject buildx mount cache into docker
+        uses: reproducible-containers/buildkit-cache-dance@5b6db76d1da5c8b307d5d2e0706d266521b710de # v3.1.2
+        with:
+          cache-map: |
+            {
+              "home-cache-386": {
+                "target": "/root/.cache",
+                "id": "home-cache-linux/386"
+              },
+              "home-cache-amd64": {
+                "target": "/root/.cache",
+                "id": "home-cache-linux/amd64"
+              },
+              "home-cache-armv6": {
+                "target": "/root/.cache",
+                "id": "home-cache-linux/arm/v6"
+              },
+              "home-cache-armv7": {
+                "target": "/root/.cache",
+                "id": "home-cache-linux/arm/v7"
+              },
+              "home-cache-arm64": {
+                "target": "/root/.cache",
+                "id": "home-cache-linux/arm64"
+              }
+            }
+
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@5cd11c3a4ced054e52742c5fd54dca954e0edd85 # v6.7.0
